@@ -1,0 +1,15 @@
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+
+# user files (server storage)
+q1/server/files/
+
+venv/
+.venv/
+
+.DS_Store
+Thumbs.db
+
+.vscode/
+.idea/
