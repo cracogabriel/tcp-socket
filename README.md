@@ -1,4 +1,4 @@
-# Q1: TCP Socket Server (Distributed Systems)
+# Q1: TCP Socket Server (text-based)
 
 A TCP client-server application built with Python's native `socket` library. The server supports multiple simultaneous clients via threads and responds to a set of text-based (UTF-8) commands for remote directory navigation.
 
