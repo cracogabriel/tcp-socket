@@ -1,6 +1,10 @@
-# Q1 — TCP Socket Server (Distributed Systems)
+# Q1: TCP Socket Server (Distributed Systems)
 
 A TCP client-server application built with Python's native `socket` library. The server supports multiple simultaneous clients via threads and responds to a set of text-based (UTF-8) commands for remote directory navigation.
+
+## Problem Statement
+
+Proposed by Prof. Rodrigo Campiolo as part of the Distributed Systems course. The goal is to implement a multi-client TCP server that handles user authentication and remote directory navigation. Each user has an isolated area on the server and can list files, list directories, and navigate the directory tree, all through a custom text-based protocol over TCP.
 
 ---
 
@@ -33,14 +37,14 @@ q1/
 
 Open **two terminals** at the project root.
 
-**Terminal 1 — Start the server:**
+**Terminal 1: Start the server:**
 
 ```bash
 cd q1/server
 python server.py
 ```
 
-**Terminal 2 — Start the client:**
+**Terminal 2: Start the client:**
 
 ```bash
 cd q1/client
@@ -57,15 +61,15 @@ python client.py
 
 All messages are exchanged as UTF-8 strings over TCP with a 4-byte length prefix to avoid message boundary issues.
 
-| Command                  | Description                                                                                                    | Response                              |
-| ------------------------ | -------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| `CONNECT user, password` | Authenticates the user. Password must be typed in plain text — the client hashes it to SHA-512 before sending. | `SUCCESS` or `ERROR`                  |
-| `PWD`                    | Returns the current working directory (relative to the user's root).                                           | path string (e.g. `/` or `/receitas`) |
-| `CHDIR path`             | Changes the current directory. Directory traversal outside the user's area is blocked.                         | `SUCCESS` or `ERROR`                  |
-| `GETFILES`               | Returns the number of files in the current directory, then each filename.                                      | count + filenames                     |
-| `GETDIRS`                | Returns the number of directories in the current directory, then each name.                                    | count + dirnames                      |
-| `HELP`                   | Displays available commands (client-side only, not sent to server).                                            | —                                     |
-| `EXIT`                   | Closes the connection.                                                                                         | —                                     |
+| Command                  | Description                                                                                                   | Response                              |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| `CONNECT user, password` | Authenticates the user. Password must be typed in plain text: the client hashes it to SHA-512 before sending. | `SUCCESS` or `ERROR`                  |
+| `PWD`                    | Returns the current working directory (relative to the user's root).                                          | path string (e.g. `/` or `/receitas`) |
+| `CHDIR path`             | Changes the current directory. Directory traversal outside the user's area is blocked.                        | `SUCCESS` or `ERROR`                  |
+| `GETFILES`               | Returns the number of files in the current directory, then each filename.                                     | count + filenames                     |
+| `GETDIRS`                | Returns the number of directories in the current directory, then each name.                                   | count + dirnames                      |
+| `HELP`                   | Displays available commands (client-side only, not sent to server).                                           | :                                     |
+| `EXIT`                   | Closes the connection.                                                                                        | :                                     |
 
 ---
 
@@ -104,7 +108,7 @@ files/<username>/
     └── img.png
 ```
 
-Users can only navigate within their own area — attempts to escape via `../` are blocked server-side.
+Users can only navigate within their own area: attempts to escape via `../` are blocked server-side.
 
 ---
 
