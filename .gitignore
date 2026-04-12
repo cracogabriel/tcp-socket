@@ -5,6 +5,9 @@
 # user files (server storage)
 q1/server/files/
 
+# client downloads
+q2/client/downloads/*
+
 venv/
 .venv/
 
@@ -13,3 +16,5 @@ Thumbs.db
 
 .vscode/
 .idea/
+
+**/server.log
