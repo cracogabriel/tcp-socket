@@ -257,3 +257,26 @@ All server actions are recorded using Python's native `logging` library. Logs ar
 - **Client:** Retries connection automatically if the server is unreachable.
 - **Server:** `Ctrl+C` shuts down gracefully.
 - **Server:** Exceptions per client are caught and logged without crashing other connections.
+
+
+---
+
+## Authors
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/GabrielCraco">
+        <img src="https://github.com/GabrielCraco.png" width="80px" alt="Gabriel Craco Tasarz"/><br/>
+        <sub><b>Gabriel Craco Tasarz</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/leonardoozima">
+        <img src="https://github.com/leonardoozima.png" width="80px" alt="Leonardo Jun'Ity Ozima"/><br/>
+        <sub><b>Leonardo Jun'Ity Ozima</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
